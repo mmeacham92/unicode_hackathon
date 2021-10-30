@@ -1,27 +1,31 @@
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: black;
+  display: flex;
+  background-color: black;
 }
 
 h1 {
-    color: #FF007A;
-    font-family: "Helvetica";
-  }
-  
-  input {
-    color: black;
-    background-color: #C0C0C0;
-  }
-  
-  button {
-    color: #FF007A;
-    background-color:#C0C0C0;
-  }
+  color: #ff007a;
+  font-family: "Helvetica";
+}
 
-  img {
-      margin-top: 12px;
-      width: 70px;
-      height: 70px;
-  }
+input {
+  color: black;
+  background-color: #c0c0c0;
+}
+
+button {
+  color: #ff007a;
+  background-color: #c0c0c0;
+}
+
+img {
+  margin-top: 12px;
+  width: 70px;
+  height: 70px;
+}
+
+.search_section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
