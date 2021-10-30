@@ -2,6 +2,7 @@ body {
   display: flex;
   background-color: black;
   height: 100%;
+  color: white;
 }
 
 h1 {
@@ -35,12 +36,18 @@ img {
   display: none;
 }
 
-details {
-  color: white;
-}
-
 a {
   text-decoration: none;
   color: #ff007a;
   font-style: italic;
+}
+
+.tokens_list_section {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+li {
+  list-style-type: none;
 }
