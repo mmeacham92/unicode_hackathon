@@ -9,21 +9,27 @@
   </head>
   <body>
     <section class="search_section">
+        <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Uniswap_Logo.svg/769px-Uniswap_Logo.svg.png"
+        alt="Unicode Autumn 2021"
+      />
       <h1>Current Price: $<span id="price">1000</span></h1>
 
       <section>
         <input placeholder="Enter a coin" />
 
         <button>Track</button>
+        <details class='hidden'>
+            <summary>Learn More</summary>
+            <p id='token_description'></p>
+        </details>
+        
       </section>
 
-      <img
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Uniswap_Logo.svg/769px-Uniswap_Logo.svg.png"
-        alt="Unicode Autumn 2021"
-      />
+      
     </section>
-    <section class="coins">
-      <ul class="token_list"></ul>
+    <section class="tokensList_section">
+      <ul class="tokens_list"></ul>
     </section>
     <script src="./main.js"></script>
   </body>
