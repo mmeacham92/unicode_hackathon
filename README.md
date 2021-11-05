@@ -2,6 +2,6 @@
 
 # This is especially important as over time, regardless of regulation, new users will want to have better learning resources that serve as bridges between specialties and levels of skill sets.
 
-# I used this time during the hackathon to more effectively network with peers and gather information helpful to the creation of what is now a half-functioning tool. This project is still in progress as I want to fully understand some basic coding vocabulary in order to create educational material complementing the Token Search Tool.
+# I used this time during the hackathon to more effectively network with peers and gather information helpful to the creation of what is now a functioning tool. This project is still in progress as I want to fully understand some basic coding vocabulary in order to create educational material complementing the Token Search Tool. How we present information is subject to change after the complimentary educational resources are complete.
 
-# As a primarily educational endeavor, I seek to share this project and complementary content with everyone in hopes of collaborating with and learning from others.
+# As a primarily educational endeavor, I seek to share this project and content with everyone in hopes of collaborating with and learning from others.
