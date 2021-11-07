@@ -27,18 +27,8 @@ function getTokenData(token) {
 }
 
 function renderSections() {
-  renderSearchSection();
-  renderTokenList();
-}
-
-function renderSearchSection() {
-  details.classList.remove("hidden");
-  document.querySelector('.search_results-data').classList.remove('hidden');
   renderSearchResults();
-  tokenDescription.innerHTML = currentToken.description;
-  const currentPrice = document.querySelector("#price");
-  const fetchedPrice = Number(currentToken.currentPrice).toFixed(2).toLocaleString('en-us');
-  currentPrice.innerText = fetchedPrice;
+  renderTokenList();
 }
 
 function renderTokenList() {
@@ -76,6 +66,8 @@ function renderTokenList() {
 }
 
 function renderSearchResults() {
+  details.classList.remove("hidden");
+  document.querySelector('.search_results-data').classList.remove('hidden');
   const imageElement = document.querySelector('.result_image');
   imageElement.src = currentToken.imageSrc;
   const nameElement = document.querySelector('.result_name')
@@ -85,18 +77,12 @@ function renderSearchResults() {
   nameElement.textContent = currentToken.name[0].toUpperCase() + currentToken.name.substring(1);
   const marketCap = document.querySelector('#market_cap');
   marketCap.textContent = currentToken.marketCap.toLocaleString('en-us');
+  const description = document.querySelector('.token_description');
+  description.innerHTML = currentToken.description;
 
 }
 
 let update;
-
-// button.addEventListener('click', function() {
-//   clearInterval(update);
-//   let token = input.value.toLowerCase();
-//   update = setInterval(() => {
-//   getTokenData(token);
-// }, 1000);
-// })
 
 button.addEventListener("click", function () {
   let token = input.value.toLowerCase();
