@@ -18,13 +18,7 @@ function getTokenData(token) {
         currentPrice: data.market_data.current_price.usd,
         description: data.description.en,
       };
-      if (
-        !searchedTokensList.some(
-          (searchedToken) => searchedToken.name === token
-        )
-      ) {
-        searchedTokensList.push(currentToken);
-      }
+      searchedTokensList.push(currentToken);
 
       renderSections();
     });
@@ -36,8 +30,8 @@ function renderSections() {
 }
 
 function renderSearchSection() {
-  details.classList.remove("hidden");
-  tokenDescription.innerHTML = currentToken.description;
+  // details.classList.remove("hidden");
+  // tokenDescription.innerHTML = currentToken.description;
   const currentPrice = document.querySelector("#price");
   const fetchedPrice = Number(currentToken.currentPrice).toFixed(2);
   currentPrice.innerText = fetchedPrice;
@@ -47,12 +41,31 @@ function renderTokenList() {
   const tokenList = document.querySelector(".tokens_list");
   tokenList.innerHTML = "";
   searchedTokensList.forEach((searchedToken) => {
+    const tokenNameString =
+      searchedToken.name[0].toUpperCase() + searchedToken.name.substring(1);
     const listItem = document.createElement("li");
-    listItem.textContent = `${
-      searchedToken.name
-    } (${searchedToken.symbol.toUpperCase()}) ----- $${
-      searchedToken.currentPrice
-    }`;
+    const html =
+    `
+    <span class='token_content'>
+      <span class='token_name'>${tokenNameString}</span>
+      <span class='token_symbol'>(${searchedToken.symbol.toUpperCase()})</span>
+    </span>
+    <span class='price_content'>$${searchedToken.currentPrice}</span>
+
+    `;
+    // <button class='list_item-button'>X</button>
+    listItem.innerHTML = html;
+
+    const itemButton = document.createElement('button');
+    itemButton.textContent = 'X';
+    itemButton.classList.add('list_item-button');
+    listItem.append(itemButton);
+
+    itemButton.addEventListener('click', function() {
+      searchedTokensList.splice(searchedTokensList.indexOf(searchedToken), 1);
+      renderTokenList();
+    })
+    
     tokenList.append(listItem);
   });
 }
