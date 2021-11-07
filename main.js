@@ -17,6 +17,8 @@ function getTokenData(token) {
         symbol: data.symbol,
         currentPrice: data.market_data.current_price.usd,
         description: data.description.en,
+        imageSrc: data.image.small,
+        marketCap: data.market_data.market_cap.usd,
       };
       searchedTokensList.push(currentToken);
 
@@ -30,10 +32,12 @@ function renderSections() {
 }
 
 function renderSearchSection() {
-  // details.classList.remove("hidden");
-  // tokenDescription.innerHTML = currentToken.description;
+  details.classList.remove("hidden");
+  document.querySelector('.search_results-data').classList.remove('hidden');
+  renderSearchResults();
+  tokenDescription.innerHTML = currentToken.description;
   const currentPrice = document.querySelector("#price");
-  const fetchedPrice = Number(currentToken.currentPrice).toFixed(2);
+  const fetchedPrice = Number(currentToken.currentPrice).toFixed(2).toLocaleString('en-us');
   currentPrice.innerText = fetchedPrice;
 }
 
@@ -44,13 +48,14 @@ function renderTokenList() {
     const tokenNameString =
       searchedToken.name[0].toUpperCase() + searchedToken.name.substring(1);
     const listItem = document.createElement("li");
+    listItem.classList.add('tokens_list-item');
     const html =
     `
     <span class='token_content'>
       <span class='token_name'>${tokenNameString}</span>
       <span class='token_symbol'>(${searchedToken.symbol.toUpperCase()})</span>
     </span>
-    <span class='price_content'>$${searchedToken.currentPrice}</span>
+    <span class='price_content'>$${searchedToken.currentPrice.toFixed(2)}</span>
 
     `;
     // <button class='list_item-button'>X</button>
@@ -70,6 +75,19 @@ function renderTokenList() {
   });
 }
 
+function renderSearchResults() {
+  const imageElement = document.querySelector('.result_image');
+  imageElement.src = currentToken.imageSrc;
+  const nameElement = document.querySelector('.result_name')
+  const currentPrice = document.querySelector("#price");
+  const fetchedPrice = Number(currentToken.currentPrice).toFixed(2).toLocaleString('en-us');
+  currentPrice.innerText = fetchedPrice;
+  nameElement.textContent = currentToken.name[0].toUpperCase() + currentToken.name.substring(1);
+  const marketCap = document.querySelector('#market_cap');
+  marketCap.textContent = currentToken.marketCap.toLocaleString('en-us');
+
+}
+
 let update;
 
 // button.addEventListener('click', function() {
@@ -84,3 +102,5 @@ button.addEventListener("click", function () {
   let token = input.value.toLowerCase();
   getTokenData(token);
 });
+
+

@@ -8,29 +8,47 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <section class="search_section">
+    <!-- <nav class='navbar'>
+      <span class='logo'>Mr. Crypto</span>
+      <ul class='navbar_list'>
+        <li class='navbar_list-item'>Crypto Tracker</li>
+        <li class='navbar_list-item'>About</li>
+      </ul>
+    </nav> -->
+    <main>
+      <section class="search_section">
         <img
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Uniswap_Logo.svg/769px-Uniswap_Logo.svg.png"
-        alt="Unicode Autumn 2021"
-      />
-      <h1>Current Price: $<span id="price"></span></h1>
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Uniswap_Logo.svg/769px-Uniswap_Logo.svg.png"
+          alt="Unicode Autumn 2021"
+          id='logo'
+        />
 
-      <section>
-        <input placeholder="Enter a coin" />
+        <section>
+          <input placeholder="Enter a coin" />
 
-        <button class='track_button'>Track</button>
-        <!-- <details class='hidden'>
+          <button class="track_button">Track</button>
+          
+        </section>
+
+        <section class="search_results-data hidden">
+          <h1>
+              <img src="" alt="searched token" class="result_image"
+            />
+            <span class="result_name"></span>
+          </h1>
+          <h3>Current Price: $<span id="price"></span></h3>
+          <h3>Market Cap: $<span id='market_cap'></span></h3>
+          <details>
             <summary>Learn More</summary>
-            <p id='token_description'></p>
-        </details> -->
-        
+            <p id="token_description"></p>
+          </details>
+        </section>
       </section>
-
-      
-    </section>
-    <section class="tokens_list_section">
-      <ul class="tokens_list"></ul>
-    </section>
+      <section class="tokens_list_section">
+        <ul class="tokens_list"></ul>
+      </section>
+    </main>
+    <footer></footer>
     <script src="./main.js"></script>
   </body>
 </html>
