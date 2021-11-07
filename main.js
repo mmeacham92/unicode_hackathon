@@ -1,7 +1,7 @@
 const input = document.querySelector("input");
-const button = document.querySelector("button");
-const tokenDescription = document.querySelector("#token_description");
-const details = document.querySelector("details");
+const trackButton = document.querySelector(".track_button");
+const moreInfoButton = document.querySelector('.more_info-button');
+const tokenDescription = document.querySelector(".token_description");
 
 const searchedTokensList = [];
 let currentToken = {};
@@ -66,7 +66,6 @@ function renderTokenList() {
 }
 
 function renderSearchResults() {
-  details.classList.remove("hidden");
   document.querySelector('.search_results-data').classList.remove('hidden');
   const imageElement = document.querySelector('.result_image');
   imageElement.src = currentToken.imageSrc;
@@ -77,16 +76,19 @@ function renderSearchResults() {
   nameElement.textContent = currentToken.name[0].toUpperCase() + currentToken.name.substring(1);
   const marketCap = document.querySelector('#market_cap');
   marketCap.textContent = currentToken.marketCap.toLocaleString('en-us');
-  const description = document.querySelector('.token_description');
-  description.innerHTML = currentToken.description;
-
+  tokenDescription.innerHTML = currentToken.description;
 }
 
 let update;
 
-button.addEventListener("click", function () {
+trackButton.addEventListener("click", function () {
   let token = input.value.toLowerCase();
   getTokenData(token);
+  input.value = '';
 });
+
+moreInfoButton.addEventListener('click', function () {
+  tokenDescription.classList.toggle('hidden');
+})
 
 

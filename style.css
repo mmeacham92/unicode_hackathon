@@ -26,9 +26,6 @@ main {
   justify-content: center;
 }
 
-/* h1 {
-  color: #ff007a;
-} */
 
 input {
   color: black;
@@ -51,7 +48,7 @@ button {
   outline: none;
 }
 
-.track_button:hover {
+button:hover {
   background-color: #ff007a;
   color: white;
 }
